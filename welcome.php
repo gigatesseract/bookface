@@ -25,7 +25,8 @@ include 'functions.php';
     <option value="genre">Genre</option>
 
   </select>
-  <input type="text" name="search" value="" placeholder = "search here" required id ="search">
+<input type="text" name="search" value="" placeholder = "search here" required id ="search" list="searchlist">
+ <datalist id = "searchlist"></datalist>
   <input type="button" name="submit" value="Go" id = "submit">
     <div class="bookshelf" id = "bookshelf">
       <input type="button" name="fetch" value="Fetch my bookshelf" id = "fetch">
