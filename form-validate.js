@@ -1,4 +1,4 @@
-$(function(){
+l$(function(){
 
 $("form[class ='form']").validate({
  rules: {

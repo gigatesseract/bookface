@@ -1,6 +1,5 @@
 var i, url, response;
 var heading = document.getElementById('mylibrary-heading');
-var popularisbn = [9781603090261, 9781891830198, 9781603090292, 9781891830402, 9781891830563];
 var shelf = document.getElementById("recommendations");
 
 function getBookDetails(url) {
@@ -71,107 +70,107 @@ function submitHandler() {
   var result = document.getElementById("search").value.split(" ");
   var res = result.join('+');
 
-  url = "https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById('chooseby').value + ":" + res +"&key=AIzaSyBvlo4zgSbusa3eqpM63-ScSAFlaq5jpuI";
+  var url = "https://www.googleapis.com/books/v1/volumes?q=" + document.getElementById('chooseby').value + ":" + res +"&key=AIzaSyBvlo4zgSbusa3eqpM63-ScSAFlaq5jpuI";
 
   getBookDetails(url);
 }
 
-function addButton(id) {
-  var add = document.createElement('input');
-  add.type = "button";
-  add.value = "Add to bookshelf";
+// function addButton(id) {
+//   var add = document.createElement('input');
+//   add.type = "button";
+//   add.value = "Add to bookshelf";
  
-  add.name = id.children[0].innerHTML;
-  id.children[0].style.display = "hidden";
-  add.className = "addbutton";
-  add.onclick = function(){
- var xml = new XMLHttpRequest();
- xml.open("GET","addtobookshelf.php?id="+add.name);
- xml.send();
- xml.onreadystatechange = function(){
-   if(this.readyState == 4 && this.status == 200){
-     console.log("added successfully");
-   }
- }
+//   add.name = id.children[0].innerHTML;
+//   id.children[0].style.display = "hidden";
+//   add.className = "addbutton";
+//   add.onclick = function(){
+//  var xml = new XMLHttpRequest();
+//  xml.open("GET","addtobookshelf.php?id="+add.name);
+//  xml.send();
+//  xml.onreadystatechange = function(){
+//    if(this.readyState == 4 && this.status == 200){
+//      console.log("added successfully");
+//    }
+//  }
 
 
-  }
-  id.appendChild(add);
-}
+//   }
+//   id.appendChild(add);
+// }
 
-function favoriteButton(id){
-  var fav = document.createElement('input');
-  fav.type = "button";
-  fav.value = "Add to favorites";
+// function favoriteButton(id){
+//   var fav = document.createElement('input');
+//   fav.type = "button";
+//   fav.value = "Add to favorites";
 
-  fav.name = id.children[0].innerHTML;
-  id.children[0].style.display = "hidden";
-  fav.className = "addbutton";
-  fav.onclick = function(){
- var xml = new XMLHttpRequest();
- xml.open("GET","addasfav.php?id="+fav.name);
- xml.send();
- xml.onreadystatechange = function(){
-   if(this.readyState == 4 && this.status == 200){
-     console.log("added successfully");
-   }
- }
+//   fav.name = id.children[0].innerHTML;
+//   id.children[0].style.display = "hidden";
+//   fav.className = "addbutton";
+//   fav.onclick = function(){
+//  var xml = new XMLHttpRequest();
+//  xml.open("GET","addasfav.php?id="+fav.name);
+//  xml.send();
+//  xml.onreadystatechange = function(){
+//    if(this.readyState == 4 && this.status == 200){
+//      console.log("added successfully");
+//    }
+//  }
 
 
-  }
-  id.appendChild(fav);
-}
+//   }
+//   id.appendChild(fav);
+// }
 var j;
-function readstatus(id){
-  var status = document.createElement('select');
-  var opt = ['Want to read', 'Currently Reading', 'Finished Reading'];
-  for(j=0;j<3;j++){
-  var op1 = document.createElement('option');
-  op1.value = opt[j];
-  op1.text = opt[j];
-  status.appendChild(op1);
-}
+// function readstatus(id){
+//   var status = document.createElement('select');
+//   var opt = ['Want to read', 'Currently Reading', 'Finished Reading'];
+//   for(j=0;j<3;j++){
+//   var op1 = document.createElement('option');
+//   op1.value = opt[j];
+//   op1.text = opt[j];
+//   status.appendChild(op1);
+// }
 
-var stat = document.createElement('input');
-stat.type = "button";
-stat.value = "Set status";
+// var stat = document.createElement('input');
+// stat.type = "button";
+// stat.value = "Set status";
 
-status.name = id.children[0].innerHTML;
-id.children[0].style.display = "hidden";
-status.className = "status";
-stat.onclick = function(){
-var xml = new XMLHttpRequest();
-xml.open("GET","setstatus.php?id="+status.name+"&value="+status.value);
-xml.send();
-xml.onreadystatechange = function(){
- if(this.readyState == 4 && this.status == 200){
-   console.log("Status set successfully");
- }
-}
+// status.name = id.children[0].innerHTML;
+// id.children[0].style.display = "hidden";
+// status.className = "status";
+// stat.onclick = function(){
+// var xml = new XMLHttpRequest();
+// xml.open("GET","setstatus.php?id="+status.name+"&value="+status.value);
+// xml.send();
+// xml.onreadystatechange = function(){
+//  if(this.readyState == 4 && this.status == 200){
+//    console.log("Status set successfully");
+//  }
+// }
 
 
-}
-id.appendChild(status);
-id.appendChild(stat);
+// }
+// id.appendChild(status);
+// id.appendChild(stat);
 
-}
+// }
 
-function fetchBookshelf(){
- var bookshelf = document.getElementById('bookshelf');
-  var xml = new XMLHttpRequest();
-  xml.open("GET", "fetchbookshelf.php");
-  xml.send();
-  xml.onreadystatechange = function(){
-  if(this.status==200 && this.readyState == 4)
-  console.log(this.responseText);
-}
-}
+// function fetchBookshelf(){
+//  var bookshelf = document.getElementById('bookshelf');
+//   var xml = new XMLHttpRequest();
+//   xml.open("GET", "fetchbookshelf.php");
+//   xml.send();
+//   xml.onreadystatechange = function(){
+//   if(this.status==200 && this.readyState == 4)
+//   console.log(this.responseText);
+// }
+// }
 var search = document.getElementById('search');
 var datalist = document.getElementById('searchlist');
 
 
 
-function asynchromousSearch(){
+function asynchronousSearch(){
 
   while(datalist.firstChild){
     datalist.removeChild(datalist.firstChild);
@@ -185,12 +184,12 @@ function asynchromousSearch(){
   xml.open("GET", url);
   xml.send();
   xml.onreadystatechange = function(){
-    console.log(this.status);
+
     if(this.readyState == 4 && this.status==200){
-      console.log(this.responseText);
+ 
       var req = JSON.parse(this.responseText);
       var total = req.totalItems>10?10:req.totalItems;
-      console.log(req);
+    
       for(i=0;i<total;i++)
       {
         var opt = document.createElement('option');
@@ -206,4 +205,4 @@ function asynchromousSearch(){
 
 document.getElementById('submit').addEventListener("click", submitHandler);
 document.getElementById('fetch').addEventListener("click", fetchBookshelf);
-search.addEventListener('input', asynchromousSearch);
+search.addEventListener('input', asynchronousSearch);

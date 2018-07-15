@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
     <meta charset="utf-8">
     <title>welcome</title>
+    <link rel="stylesheet" type="text/css" href="megastyles.css">
   </head>
   <body>
- 
-    <p>Here is your bookshelf:-</p>
-    <div class="bookshelf" id = "bookshelf">
+   <div id="fb-root"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=230930064200519&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> 
 
-    </div>
-    <p>Here are your favorites:- </p>
-    <div class="favorites" id = "favorites">
 
+ <div class="fb-share-button" data-href="https://developers.google.com/books/docs/v1/using" data-layout="button" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.google.com%2Fbooks%2Fdocs%2Fv1%2Fusing&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+ <a href="welcome.php">Back to library</a>
+ <div class = "searchother">
+<input type="text" name="text" id = "searcharea" placeholder = "Enter username of person to search"><br>
+<input type="button" name="searcharea" value = "Search" id = "searchperson">
+</div>
+    <h1 id = "profile">My profile</h1>
+    <div class = "accesslevel" id = "accesslevel">
+    <label for="access">Set your status:- </label><br>
+   
+    <input type="radio" name="access" value = "public" id = "one" checked> Public 
+    <input type="radio" name="access" value = "private" id = "one"> Private <br>
+    <input type="button" name="setstatus" value = "Set status" id = "status" onclick="setstatus()"> <br>
+  </div>
+    <div class = "popup" style="display:none" id = "popup"></div>
     </div>
-    <p>Here is your currently reading</p>
-    <div class = "reading" id = "reading">
-
-    </div>
-    <p>Here is your activity</p>
+    <p class = "activity-heading">Recent Activity</p>
     <div class ="activity" id = "activity">
 
+
     </div>
+    <div class = "container blanket" id = "blanket">
+     
+    <p id = "accesswarning"></p>
+    <p class = "heading">Bookshelf-</p><hr>
+    <div class="bookshelf" id = "bookshelf">
+     
+    </div>
+  <p class = "heading">Favorites- </p><hr>
+    <div class="favorites" id = "favorite">
+
+    </div>
+    <p class = "heading">Currently Reading-</p><hr>
+    <div class = "reading" id = "reading">
+  
+    </div>
+ 
+
   </body>
   <script type="text/javascript" src = "profilefunc.js">
 
